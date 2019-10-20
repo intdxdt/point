@@ -5,4 +5,4 @@ authors = ["Titus Tienaah <titus.intdxdt@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-float-eq = { git = "https://github.com/intdxdt/float-eq", branch="master"}
+math-util = { git = "https://github.com/intdxdt/math-util", branch="master"}

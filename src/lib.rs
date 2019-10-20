@@ -1,4 +1,4 @@
-use float_eq::feq;
+use math_util::feq;
 
 #[derive(Copy, Clone, Debug)]
 pub struct Point {

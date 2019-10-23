@@ -10,7 +10,7 @@ impl Point {
     pub fn new(x: f64, y: f64) -> Point {
         Point { x, y }
     }
-    pub fn new_from_array(a: [f64; 2]) -> Point {
+    pub fn new_from_array(a: &[f64; 2]) -> Point {
         Point { x: a[0], y: a[1] }
     }
 

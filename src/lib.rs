@@ -10,6 +10,9 @@ impl Point {
     pub fn new(x: f64, y: f64) -> Point {
         Point { x, y }
     }
+    pub fn new_from_array(a: [f64; 2]) -> Point {
+        Point { x: a[0], y: a[1] }
+    }
 
     ///Operator : equals
     pub fn equals(&self, other: &Point) -> bool {
@@ -44,7 +47,7 @@ mod tests {
 
     #[test]
     fn test_point() {
-        let pa = Point::new(3.0, 4.0);
+        let pa = Point::new_from_array([3.0, 4.0]);
         let pb = Point::new(3.0, 4.0);
         let pc = Point::new(5.0, 4.0);
         assert_eq!(pa.x, 3.0);

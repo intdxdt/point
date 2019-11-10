@@ -152,12 +152,12 @@ impl Point {
     }
 
     ///Distance from segment end points to self
-    pub fn distance_to_point(&self, sa: Point, sb: Point) -> f64 {
-        self.distance_to_pt(sa, sb, f64::hypot)
+    pub fn distance_to_segment(&self, sa: Point, sb: Point) -> f64 {
+        self.distance_to_seg(sa, sb, f64::hypot)
     }
 
     ///Distance from segment end points to self
-    pub fn distance_to_pt(&self, sa: Point, sb: Point, hypot_func: fn(f64, f64) -> f64) -> f64 {
+    pub fn distance_to_seg(&self, sa: Point, sb: Point, hypot_func: fn(f64, f64) -> f64) -> f64 {
         let (ax, ay) = (sa.x, sa.y);
         let (bx, by) = (sb.x, sb.y);
         let (px, py) = (self.x, self.y);

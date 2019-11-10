@@ -260,11 +260,11 @@ fn test_distance_to_vector() {
     let mut dists = vec![0.0; tpoints.len()];
 
     for (i, tp) in (&tpoints).into_iter().enumerate() {
-        dists[i] = tp.distance_to_point(a, b)
+        dists[i] = tp.distance_to_segment(a, b)
     }
 
-    assert_eq!(pt!(30., 0.).distance_to_point(a, a), a.distance(&pt!(30., 0.)));
-    assert_eq!(pt!(30., 0.).distance_to_point(b, b), b.distance(&pt!(30., 0.)));
+    assert_eq!(pt!(30., 0.).distance_to_segment(a, a), a.distance(&pt!(30., 0.)));
+    assert_eq!(pt!(30., 0.).distance_to_segment(b, b), b.distance(&pt!(30., 0.)));
 
     for i in 0..tpoints.len() {
         assert_eq!(round(dists[i], 2), round(t_dists[i], 2));

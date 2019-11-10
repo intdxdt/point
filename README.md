@@ -59,9 +59,9 @@ assert!(e.orientation2d(a, c) > 0.);   //orientation of e relative segment a-c
 || Uncovered Lines:
 || Tested/Total Lines:
 || src/lib.rs: 109/109
-|| src/tests.rs: 200/200
+|| src/tests.rs: 202/202
 || 
-100.00% coverage, 309/309 lines covered
+100.00% coverage, 311/311 lines covered
 ```
 
 ## lic 

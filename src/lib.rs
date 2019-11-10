@@ -1,3 +1,4 @@
+use serde::{Serialize, Deserialize};
 use coordinate::Coordinate;
 use std::fmt::Debug;
 use math_util::{num, Feq, EPSILON, PI, TAU, NumCast};
@@ -7,7 +8,7 @@ use robust_orientation::orientation_2d;
 /// Point is a 2D (x:float, y:float) point type.
 /// float : f32 & f64 - required for most computations
 /// requiring area, distance, trigonometry, etc.
-#[derive(Copy, Clone, PartialOrd, Debug)]
+#[derive(Serialize, Deserialize, Copy, Clone, PartialOrd, Debug)]
 pub struct Point {
     pub x: f64,
     pub y: f64,

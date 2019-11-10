@@ -271,3 +271,14 @@ fn test_distance_to_vector() {
         assert_eq!(round(dists[i], 2), round(t_dists[i], 2));
     }
 }
+
+#[test]
+fn test_serialize_deserialize() {
+    let point = pt!(1, 2);
+    let serialized = serde_json::to_string(&point).unwrap();
+    assert_eq!(serialized, String::from(r#"{"x":1.0,"y":2.0}"#));
+    let deserialized: Point = serde_json::from_str(r#"{"x":1.0,"y":2.0}"#).unwrap();
+    assert_eq!(point, deserialized);
+    let deser_array: Point = serde_json::from_str("[1.0,2.0]").unwrap();
+    assert_eq!(point, deser_array);
+}

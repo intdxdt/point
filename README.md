@@ -65,4 +65,4 @@ assert!(e.orientation2d(a, c) > 0.);   //orientation of e relative segment a-c
 ```
 
 ## lic 
-`MIT
+`MIT`

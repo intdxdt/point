@@ -151,9 +151,14 @@ impl Point {
         return Point::component(magnitude, fb);
     }
 
-    ///Distance from segment end points to self
+    ///Distance from self to segment
     pub fn distance_to_segment(&self, sa: Point, sb: Point) -> f64 {
         self.distance_to_seg(sa, sb, f64::hypot)
+    }
+
+    ///Square Distance from self to segment
+    pub fn square_distance_to_segment(&self, sa: Point, sb: Point) -> f64 {
+        self.distance_to_seg(sa, sb, |x, y| x * x + y * y)
     }
 
     ///Distance from segment end points to self

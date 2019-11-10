@@ -265,6 +265,7 @@ fn test_distance_to_vector() {
 
     assert_eq!(pt!(30., 0.).distance_to_segment(a, a), a.distance(&pt!(30., 0.)));
     assert_eq!(pt!(30., 0.).distance_to_segment(b, b), b.distance(&pt!(30., 0.)));
+    assert_eq!(pt!(30., 0.).square_distance_to_segment(b, b), b.square_distance(&pt!(30., 0.)));
 
     for i in 0..tpoints.len() {
         assert_eq!(round(dists[i], 2), round(t_dists[i], 2));

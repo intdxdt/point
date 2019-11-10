@@ -7,3 +7,4 @@ edition = "2018"
 [dependencies]
 math-util = { git = "https://github.com/intdxdt/math-util", branch="master"}
 coordinate = { git = "https://github.com/intdxdt/coordinate", branch="master"}
+robust_orientation = { git = "https://github.com/intdxdt/robust_orientation", branch="master"}

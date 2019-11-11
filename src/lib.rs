@@ -5,6 +5,7 @@ use math_util::{num, Feq, EPSILON, PI, TAU, NumCast};
 use std::ops::{Index, IndexMut};
 use robust_orientation::orientation_2d;
 
+
 /// Point is a 2D (x:float, y:float) point type.
 /// float : f32 & f64 - required for most computations
 /// requiring area, distance, trigonometry, etc.
@@ -214,7 +215,6 @@ impl From<&Vec<f64>> for Point {
     }
 }
 
-
 impl Eq for Point {}
 
 impl PartialEq for Point {
@@ -230,28 +230,48 @@ impl PartialEq for Point {
 impl Coordinate for Point {
     type Scalar = f64;
     const DIM: usize = 2;
-
-    fn gen(dim_val: impl Fn(usize) -> Self::Scalar) -> Self {
+    ///Type Constructor : Generator over dimensions
+    fn gen(value: impl Fn(usize) -> Self::Scalar) -> Self {
         Point {
-            x: dim_val(0),
-            y: dim_val(1),
+            x: value(0),
+            y: value(1),
         }
     }
-
-    fn nth(&self, i: usize) -> Self::Scalar {
+    ///Value in ith dimension
+    fn val(&self, i: usize) -> Self::Scalar {
         match i {
             0 => self.x,
             1 => self.y,
             _ => unreachable!(),
         }
     }
-
-    fn nth_mut(&mut self, i: usize) -> &mut Self::Scalar {
+    ///Mutable value in ith dimension
+    fn val_mut(&mut self, i: usize) -> &mut Self::Scalar {
         match i {
             0 => &mut self.x,
             1 => &mut self.y,
             _ => unreachable!(),
         }
+    }
+}
+
+impl rstar::Point for Point {
+    type Scalar = f64;
+    const DIMENSIONS: usize = 2;
+
+    ///Type Constructor : Generator over dimensions
+    fn generate(generator: impl Fn(usize) -> Self::Scalar) -> Self {
+        Point::gen(generator)
+    }
+
+    ///Value in ith dimension
+    fn nth(&self, index: usize) -> Self::Scalar {
+        self.val(index)
+    }
+
+    ///Mutable value in ith dimension
+    fn nth_mut(&mut self, index: usize) -> &mut Self::Scalar {
+        self.val_mut(index)
     }
 }
 
@@ -268,7 +288,7 @@ impl Index<usize> for Point {
 
 impl IndexMut<usize> for Point {
     fn index_mut(&mut self, i: usize) -> &mut Self::Output {
-        self.nth_mut(i)
+        self.val_mut(i)
     }
 }
 

@@ -10,3 +10,4 @@ coordinate = { git = "https://github.com/intdxdt/coordinate", branch="master"}
 robust_orientation = { git = "https://github.com/intdxdt/robust_orientation", branch="master"}
 serde = { version = "1.0.102", features = ["derive"] }
 serde_json = "1.0.41"
+rstar = "0.5.1"

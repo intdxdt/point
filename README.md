@@ -58,10 +58,10 @@ assert!(e.orientation2d(a, c) > 0.);   //orientation of e relative segment a-c
 [INFO tarpaulin] Coverage Results:
 || Uncovered Lines:
 || Tested/Total Lines:
-|| src/lib.rs: 109/109
-|| src/tests.rs: 202/202
+|| src/lib.rs: 115/115
+|| src/tests.rs: 212/212
 || 
-100.00% coverage, 311/311 lines covered
+100.00% coverage, 327/327 lines covered
 ```
 
 ## lic 

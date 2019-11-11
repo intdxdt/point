@@ -1,8 +1,20 @@
 use super::*;
 use math_util::{round, Feq, SQRT_2, FRAC_PI_4};
+use rstar::Point as RStarPoint;
 
 #[test]
 fn test_point() {
+    let a = pt![3, 4];
+    assert_eq!(a.val(0), 3.);
+    assert_eq!(a.val(1), 4.);
+    let mut b = pt![4, 5];
+    *b.nth_mut(0) = 2.0;
+    *b.nth_mut(1) = 1.5;
+    assert_eq!(b.nth(0), 2.);
+    assert_eq!(b.nth(1), 1.5);
+    let c  = Point::generate(|_| 0.3);
+    assert_eq!(c.as_tuple(), (0.3, 0.3));
+
     let pa = pt![3, 4];
     let mut m_pa = Point::new_from_array(&[3.0, 4.0]);
     let pb = Point::new(3.0, 4.0);
